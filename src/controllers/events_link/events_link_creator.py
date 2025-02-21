@@ -27,15 +27,18 @@ class EventsLinkCreator:
         return new_link 
     
     def __format_response(self, new_link:str, event_id:int, sub_id:int) -> HttpResponse:
-        body = {
+        
+        return HttpResponse(body={
             "data": {
                 "Type": "Event Link",
                 "count": 1,
                 "attributes": {
                     "link": new_link,
                     "event_id": event_id,
-                    "sub_id": sub_id,
+                    "sub_id": sub_id
                 }
-            },
-            "status_code": 201
-        }
+            }},
+            status_code= 201
+        )
+        
+        
